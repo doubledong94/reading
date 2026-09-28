@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# 本地生成 / 个人文件
+/books/
+/catalog.md
+/READING_PLAN.md
+
+# 工作区数据 (书籍/索引/本地区规则, 不入库)
+/workspaces/
