@@ -63,6 +63,9 @@ python3 ../../lib/search.py "关键词" -n 5        # 每书最多 5 条; -r 正
 
 # 导入新书 (在仓库根执行)
 ./add_book.sh {{WS}} ~/Downloads/newbook.pdf
+
+# 删除书籍 (在仓库根执行; 会同步清理本表与 catalog.md)
+./remove_book.sh {{WS}} <slug>          # -y 免确认, --dry-run 只看
 ```
 
 ## 本区书目路由

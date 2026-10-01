@@ -67,6 +67,8 @@ AI 读本区 `AGENTS.md`（书目路由 + 只读本区）与根 `AGENTS.md`（�
 ### 7. 日常维护
 
 - **换新版 PDF**：重跑第 2 步同一条命令——源文件变了会自动清空旧页全量重转，不残留
+- **删除某本书**：`./remove_book.sh csg <slug>`（交互确认；`-y` 免确认，`--dry-run` 只看）。
+  三合一删除：删 `books/<slug>/` 目录，并清掉该区 `catalog.md`、`AGENTS.md` 书目路由里的对应行
 - **新批次书**：换个工作区名再跑第 2 步，与旧区互不相干
 - **临时调参**（强制重转/关图片/并行度）：
   `python3 lib/pdf2md.py a.pdf -o workspaces/csg/books --force --workers 8 --no-images`
@@ -94,7 +96,9 @@ workspaces/<workspace>/           一批互不相干的书
         ├── _toc.md               章节目录（可读版，含页码与链接）
         └── images/               页面插图
 add_book.sh                       导入入口 (第一参数 = 工作区名)
+remove_book.sh                    删除入口 (第一参数 = 工作区名)
 lib/pdf2md.py                     转换器（CLI）
+lib/remove_book.py                删除书籍 + 清理 catalog/AGENTS 登记
 lib/search.py                     检索（关键词 → 工作区/书/页/章节）
 AGENTS.md                         通用问答规则 + 工作区机制 (AI 先读这个)
 requirements.txt                  依赖（pymupdf）

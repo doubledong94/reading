@@ -117,3 +117,14 @@ pip install -r requirements.txt            # 首次 (仅 pymupdf)
 一条命令即产出 `books/<slug>/md/`、`index.json`、书级 `AGENTS.md` 骨架，
 登记该区 `catalog.md` 与该区 `AGENTS.md` 的书目路由表，无需手工准备。
 建议手工补充的只有一处：该书 `AGENTS.md` 的「已知缺陷 / 注意」段。
+
+## 删除书籍
+
+```bash
+./remove_book.sh <workspace> <slug>            # 交互确认
+./remove_book.sh <workspace> <slug> -y         # 免确认 (脚本/AI)
+./remove_book.sh <workspace> a b --dry-run     # 只看将删除什么
+```
+
+删除动作为三合一: 删 `books/<slug>/` 整个目录, 并从该区 `catalog.md`、
+`AGENTS.md` 书目路由表中移除该书所在行, 不留悬挂登记。
